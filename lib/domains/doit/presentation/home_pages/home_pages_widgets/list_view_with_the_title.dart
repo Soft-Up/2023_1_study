@@ -1,11 +1,12 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class HomePageListViewWithTheTitle extends StatelessWidget {
   final String title;
   final Axis scrollDirection;
-
-  const HomePageListViewWithTheTitle({
+  final ScrollController _scrollController=ScrollController();
+  HomePageListViewWithTheTitle({
     super.key,
     required this.title,
     required this.scrollDirection,
@@ -20,8 +21,12 @@ class HomePageListViewWithTheTitle extends StatelessWidget {
           title,
           style: TextStyle(fontSize: 32),
         ),
+
         Expanded(
-            child: ListView(
+        child: Scrollbar(
+        controller: _scrollController,
+        child: ListView(
+          controller: _scrollController,
           shrinkWrap: true,
           scrollDirection: scrollDirection,
           children: [
@@ -46,8 +51,7 @@ class HomePageListViewWithTheTitle extends StatelessWidget {
               width: 200,
             ),
           ],
-        ))
-      ],
-    ));
+        )))]  
+          ));
   }
 }
