@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Text("Find your", style: TextStyle(fontSize: 30)),
               Text("Inspiration", style: TextStyle(fontSize: 48)),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               Container(
                 decoration: BoxDecoration(
@@ -45,6 +45,47 @@ class _MyHomePageState extends State<MyHomePage> {
                       hintText: "검색어를 입력해주세요"),
                 ),
               ),
+              Expanded(
+                  child: Column(
+                    crossAxisAlignment:CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "가로 스크롤",
+                    style: TextStyle(fontSize: 32),
+                  ),
+                  Expanded(
+                      child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    children: [
+                      Container(color: Colors.red, height: 200, width: 200),
+                      Container(color: Colors.yellow, height: 200, width: 200),
+                      Container(color: Colors.blue, height: 200, width: 200),
+                      Container(color: Colors.green, height: 200, width: 200),
+                    ],
+                  ))
+                ],
+              )),
+              Expanded(
+                  child: Column(
+                    crossAxisAlignment:CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "세로 스크롤",
+                        style: TextStyle(fontSize: 32),
+                      ),
+                      Expanded(
+                          child: ListView(
+                            shrinkWrap: true,
+                            children: [
+                              Container(color: Colors.red, height: 200, width: 200),
+                              Container(color: Colors.yellow, height: 200, width: 200),
+                              Container(color: Colors.blue, height: 200, width: 200),
+                              Container(color: Colors.green, height: 200, width: 200),
+                            ],
+                          ))
+                    ],
+                  )),
             ],
           ),
         ));
