@@ -14,13 +14,13 @@ class CelebrityBlocInit extends CelebrityBlocState {
 }
 
 class CelebrityBlocInProgress extends CelebrityBlocState {
-  CelebrityBlocInProgress({required super.celebrities});
+  const CelebrityBlocInProgress({required super.celebrities});
 }
 
 class CelebrityBlocSuccess extends CelebrityBlocState {
-  CelebrityBlocSuccess({required super.celebrities});
+  const CelebrityBlocSuccess({required super.celebrities});
 }
 
 class CelebrityBlocFailed extends CelebrityBlocState {
-  CelebrityBlocFailed({required super.celebrities});
+  const CelebrityBlocFailed({required super.celebrities});
 }

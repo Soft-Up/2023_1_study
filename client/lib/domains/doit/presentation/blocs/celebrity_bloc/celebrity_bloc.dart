@@ -13,15 +13,28 @@ class CelebrityBloc extends Bloc<CelebrityBlocEvent, CelebrityBlocState> {
   CelebrityBloc({required CelebrityService celebrityService})
       : _celebrityService = celebrityService,
         super(CelebrityBlocInit()) {
-    on<GetCelebrity>(_onGet);
+    on<RefreshCelebrity>(_onRefresh);
+    on<ReadNextCelebrity>(_onReadNext);
   }
 
-  Future<void> _onGet(
-      GetCelebrity event, Emitter<CelebrityBlocState> emit) async {
+  Future<void> _onRefresh(
+      RefreshCelebrity event, Emitter<CelebrityBlocState> emit) async {
     emit(CelebrityBlocInProgress(celebrities: state.celebrities));
     try {
       final result = await _celebrityService.getCelebrity();
-      emit(CelebrityBlocSuccess(celebrities: [...state.celebrities, ...result]));
+      emit(CelebrityBlocSuccess(celebrities: result));
+    } catch (e) {
+      emit(CelebrityBlocFailed(celebrities: state.celebrities));
+    }
+  }
+
+  Future<void> _onReadNext(
+      ReadNextCelebrity event, Emitter<CelebrityBlocState> emit) async {
+    emit(CelebrityBlocInProgress(celebrities: state.celebrities));
+    try {
+      final result = await _celebrityService.getCelebrity();
+      emit(
+          CelebrityBlocSuccess(celebrities: [...state.celebrities, ...result]));
     } catch (e) {
       emit(CelebrityBlocFailed(celebrities: state.celebrities));
     }

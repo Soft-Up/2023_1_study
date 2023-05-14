@@ -17,7 +17,7 @@ class _BlocHomePageState extends State<BlocHomePage> {
   void initState() {
     super.initState();
 
-    context.read<CelebrityBloc>().add(GetCelebrity());
+    context.read<CelebrityBloc>().add(RefreshCelebrity());
   }
 
   @override
