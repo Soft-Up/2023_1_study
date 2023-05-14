@@ -17,6 +17,15 @@ class CelebrityBlocInProgress extends CelebrityBlocState {
   const CelebrityBlocInProgress({required super.celebrities});
 }
 
+class CelebrityBlocRefreshInProgress extends CelebrityBlocInProgress {
+  const CelebrityBlocRefreshInProgress({required super.celebrities});
+}
+
+class CelebrityBlocReadNextInProgress extends CelebrityBlocInProgress {
+  const CelebrityBlocReadNextInProgress({required super.celebrities});
+}
+
+
 class CelebrityBlocSuccess extends CelebrityBlocState {
   const CelebrityBlocSuccess({required super.celebrities});
 }

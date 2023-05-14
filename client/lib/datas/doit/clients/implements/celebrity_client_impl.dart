@@ -13,8 +13,8 @@ class CelebrityClientImpl implements CelebrityClient {
     final http.Response response = await http.get(url);
 
     if (response.statusCode < 300) {
-      final decodedResponse =
-          jsonDecode(response.body) as List;
+      final decodedResponse = jsonDecode(response.body) as List;
+      await Future.delayed(const Duration(seconds: 1));
       return decodedResponse.map((e) => CelebrityDto.fromJson(e));
     }
     if (response.statusCode < 500) {

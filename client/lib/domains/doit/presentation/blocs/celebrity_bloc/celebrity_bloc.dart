@@ -19,7 +19,7 @@ class CelebrityBloc extends Bloc<CelebrityBlocEvent, CelebrityBlocState> {
 
   Future<void> _onRefresh(
       RefreshCelebrity event, Emitter<CelebrityBlocState> emit) async {
-    emit(CelebrityBlocInProgress(celebrities: state.celebrities));
+    emit(CelebrityBlocRefreshInProgress(celebrities: state.celebrities));
     try {
       final result = await _celebrityService.getCelebrity();
       emit(CelebrityBlocSuccess(celebrities: result));
@@ -30,7 +30,7 @@ class CelebrityBloc extends Bloc<CelebrityBlocEvent, CelebrityBlocState> {
 
   Future<void> _onReadNext(
       ReadNextCelebrity event, Emitter<CelebrityBlocState> emit) async {
-    emit(CelebrityBlocInProgress(celebrities: state.celebrities));
+    emit(CelebrityBlocReadNextInProgress(celebrities: state.celebrities));
     try {
       final result = await _celebrityService.getCelebrity();
       emit(

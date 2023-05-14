@@ -18,23 +18,13 @@ class HomePageListViewWithTheTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: TextStyle(fontSize: 32),
-        ),
-        Expanded(
-            child: ListView(
-                shrinkWrap: true,
-                controller: scrollController,
-                scrollDirection: scrollDirection,
-                children: List.generate(
-                    dataIterable.length,
-                    (index) =>
-                        Image.network(dataIterable.elementAt(index).imgUrl))))
-      ],
-    ));
+        child: ListView(
+            shrinkWrap: true,
+            controller: scrollController,
+            scrollDirection: scrollDirection,
+            children: List.generate(
+                dataIterable.length,
+                (index) =>
+                    Image.network(dataIterable.elementAt(index).imgUrl))));
   }
 }

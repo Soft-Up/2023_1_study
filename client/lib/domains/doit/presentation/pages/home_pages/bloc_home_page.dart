@@ -24,7 +24,7 @@ class _BlocHomePageState extends State<BlocHomePage> {
       ScrollController scrollController, CelebrityBloc celebrityBloc) {
     var scrollPosition = scrollController.position;
     if (celebrityBloc.state is! CelebrityBlocInProgress) {
-      if (scrollPosition.pixels < -130) {
+      if (scrollPosition.pixels < -100) {
         celebrityBloc.add(RefreshCelebrity());
       } else if (scrollPosition.userScrollDirection ==
               ScrollDirection.reverse &&
@@ -96,12 +96,45 @@ class _BlocHomePageState extends State<BlocHomePage> {
                       builder: (builderContext) =>
                           BlocBuilder<CelebrityBloc, CelebrityBlocState>(
                               builder: (celebrityContext, celebrityState) {
-                            return HomePageListViewWithTheTitle(
-                              title: "가로 스크롤",
-                              scrollController: _horizontalScrollController,
-                              scrollDirection: Axis.horizontal,
-                              dataIterable: celebrityState.celebrities,
-                            );
+                            return Expanded(
+                                child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                  Text("가로 스크롤",
+                                      style: TextStyle(fontSize: 32)),
+                                  Expanded(
+                                      child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                        if (celebrityState
+                                            is CelebrityBlocRefreshInProgress)
+                                          const Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 20),
+                                              child:
+                                                  CircularProgressIndicator()),
+                                        HomePageListViewWithTheTitle(
+                                          title: "가로 스크롤",
+                                          scrollController:
+                                              _horizontalScrollController,
+                                          scrollDirection: Axis.horizontal,
+                                          dataIterable:
+                                              celebrityState.celebrities,
+                                        ),
+                                        if (celebrityState
+                                            is CelebrityBlocReadNextInProgress)
+                                          const Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 20),
+                                              child:
+                                                  CircularProgressIndicator()),
+                                      ]))
+                                ]));
                           }))),
               BlocProvider(
                   create: (_) {
@@ -118,12 +151,38 @@ class _BlocHomePageState extends State<BlocHomePage> {
                       builder: (builderContext) =>
                           BlocBuilder<CelebrityBloc, CelebrityBlocState>(
                               builder: (celebrityContext, celebrityState) {
-                            return HomePageListViewWithTheTitle(
-                              title: "세로 스크롤",
-                              scrollController: _verticalScrollController,
-                              scrollDirection: Axis.vertical,
-                              dataIterable: celebrityState.celebrities,
-                            );
+                            return Expanded(
+                                child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                  Text("세로 스크롤",
+                                      style: TextStyle(fontSize: 32)),
+                                  if (celebrityState
+                                      is CelebrityBlocRefreshInProgress)
+                                    const Center(
+                                        child: Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 20),
+                                            child:
+                                                CircularProgressIndicator())),
+                                  HomePageListViewWithTheTitle(
+                                    title: "세로 스크롤",
+                                    scrollController: _verticalScrollController,
+                                    scrollDirection: Axis.vertical,
+                                    dataIterable: celebrityState.celebrities,
+                                  ),
+                                  if (celebrityState
+                                      is CelebrityBlocReadNextInProgress)
+                                    const Center(
+                                        child: Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 20),
+                                            child:
+                                                CircularProgressIndicator())),
+                                ]));
                           }))),
             ],
           ),
