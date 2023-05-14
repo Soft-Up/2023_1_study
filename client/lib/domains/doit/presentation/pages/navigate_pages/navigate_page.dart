@@ -22,12 +22,7 @@ class NavigatePage extends StatelessWidget {
           OutlinedButton(
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (_) => BlocProvider(
-                        create: (_) => CelebrityBloc(
-                            celebrityService: CelebrityServiceImpl(
-                                celebrityRepository: CelebrityRepositoryImpl(
-                                    celebrityClient: CelebrityClientImpl()))),
-                        child: BlocHomePage(title: "Bloc 페이지"))));
+                    builder: (_) => BlocHomePage(title: "Bloc 페이지")));
               },
               child: Text("Bloc 페이지")),
           OutlinedButton(
