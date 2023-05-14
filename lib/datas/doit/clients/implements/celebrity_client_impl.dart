@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:doit_fluttter_study/domains/core/http/exception/exceptions.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:doit_fluttter_study/datas/doit/clients/interfaces/celebrity_client.dart';
