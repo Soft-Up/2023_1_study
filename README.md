@@ -84,3 +84,29 @@
 + 각 팀원의 이름 별로 브랜치가 존재합니다. 스터디한 결과물을 업로드합니다.
 + "feature-xxx" 브랜치는 xxx의 예제 브랜치입니다. feature-api라면 API 연결 예제 브랜치입니다.
 
+## 폴더 구조
+```shell
+client # 클라이언트 
+  ├── lib
+  │   ├── app # 앱 설정 관련 폴더
+  │   ├── datas # 데이터 처리 레이어 폴더
+  │   │   └── doit # 도메인 이름
+  │   │       ├── clients # API 호출 관련 클래스
+  │   │       └── repositories # 데이터 가공 레이어 1
+  │   │
+  │   ├── domains # 도메인 레이어 폴더 모음
+  │   │    ├── core # 핵심 파일들 ex) 공통 Exception
+  │   │    └── doit # 도메인 이름
+  │   │         ├── domain # 도메인 레이어 폴더
+  │   │         │     ├── model # 모델
+  │   │         │     │    ├── dtos # 서버 <=> 클라이언트 간 데이터 매핑용 데이터 모델
+  │   │         │     │    ├── entities # 클라이언트 내에서 사용하는 데이터 모델
+  │   │         │     │    └── mappers # 각 모델간 Mapping을 도와주는 클래스
+  │   │         │     └── services # 데이터 가공 레이어 2
+  │   │         └── presentation # UI & 비즈니스 로직
+  │   │               ├── blocs # 비즈니스 로직 처리 블록 모음
+  │   │               ├── cubits # 비즈니스 로직 처리 큐빅 모음
+  │   │               └── pages # UI 모음
+  │   └── main.dart
+  └── server # 간단한 로컬 express 서버
+```
