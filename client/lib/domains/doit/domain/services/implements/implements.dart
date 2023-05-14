@@ -1,0 +1,1 @@
+export 'celebrity_service_impl.dart';
