@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 class HomePageListViewWithTheTitle extends StatelessWidget {
   final String title;
   final Axis scrollDirection;
-  final List<Celebrity> dataList;
+  final Iterable<Celebrity> dataIterable;
 
   const HomePageListViewWithTheTitle({
     super.key,
     required this.title,
     required this.scrollDirection,
-    required this.dataList,
+    required this.dataIterable,
   });
 
   @override
@@ -27,8 +27,8 @@ class HomePageListViewWithTheTitle extends StatelessWidget {
             child: ListView(
                 shrinkWrap: true,
                 scrollDirection: scrollDirection,
-                children: List.generate(dataList.length,
-                    (index) => Image.network(dataList[index].imgUrl))))
+                children: List.generate(dataIterable.length,
+                    (index) => Image.network(dataIterable.elementAt(index).imgUrl))))
       ],
     ));
   }

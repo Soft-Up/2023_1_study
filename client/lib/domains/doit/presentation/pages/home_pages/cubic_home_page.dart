@@ -66,13 +66,13 @@ class _CubicHomePageState extends State<CubicHomePage> {
                   const HomePageListViewWithTheTitle(
                     title: "가로 스크롤",
                     scrollDirection: Axis.horizontal,
-                    dataList: [],
+                    dataIterable: [],
                   ),
                 if (celebrityState is! CelebrityCubicInit)
                   const HomePageListViewWithTheTitle(
                     title: "세로 스크롤",
                     scrollDirection: Axis.vertical,
-                    dataList: [],
+                    dataIterable: [],
                   ),
               ],
             ),

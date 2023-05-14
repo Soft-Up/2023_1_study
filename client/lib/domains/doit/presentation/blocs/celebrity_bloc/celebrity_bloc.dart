@@ -18,12 +18,12 @@ class CelebrityBloc extends Bloc<CelebrityBlocEvent, CelebrityBlocState> {
 
   Future<void> _onGet(
       GetCelebrity event, Emitter<CelebrityBlocState> emit) async {
-    emit(CelebrityBlocInProgress());
+    emit(CelebrityBlocInProgress(celebrities: state.celebrities));
     try {
-      await _celebrityService.getCelebrity();
-      emit(CelebrityBlocSuccess());
+      final result = await _celebrityService.getCelebrity();
+      emit(CelebrityBlocSuccess(celebrities: [...state.celebrities, ...result]));
     } catch (e) {
-      emit(CelebrityBlocFailed());
+      emit(CelebrityBlocFailed(celebrities: state.celebrities));
     }
   }
 }

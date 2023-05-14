@@ -1,8 +1,3 @@
-import 'package:doit_fluttter_study/datas/doit/clients/implements/implemenets.dart';
-import 'package:doit_fluttter_study/datas/doit/clients/interfaces/interfaces.dart';
-import 'package:doit_fluttter_study/datas/doit/repositories/implements/celebirty_repository_impl.dart';
-import 'package:doit_fluttter_study/domains/doit/domain/services/implements/celebrity_service_impl.dart';
-import 'package:doit_fluttter_study/domains/doit/domain/services/interfaces/celebrity_service.dart';
 import 'package:doit_fluttter_study/domains/doit/presentation/blocs/celebrity_bloc/celebrity_bloc.dart';
 import 'package:doit_fluttter_study/domains/doit/presentation/pages/home_pages/home_pages_widgets/list_view_with_title.dart';
 import 'package:flutter/material.dart';
@@ -60,16 +55,16 @@ class _BlocHomePageState extends State<BlocHomePage> {
                   ),
                 ),
                 if (celebrityState is! CelebrityBlocInit)
-                  const HomePageListViewWithTheTitle(
+                  HomePageListViewWithTheTitle(
                     title: "가로 스크롤",
                     scrollDirection: Axis.horizontal,
-                    dataList: [],
+                    dataIterable: celebrityState.celebrities,
                   ),
                 if (celebrityState is! CelebrityBlocInit)
-                  const HomePageListViewWithTheTitle(
+                  HomePageListViewWithTheTitle(
                     title: "세로 스크롤",
                     scrollDirection: Axis.vertical,
-                    dataList: [],
+                    dataIterable: celebrityState.celebrities,
                   ),
               ],
             ),
