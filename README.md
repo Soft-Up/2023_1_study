@@ -80,4 +80,7 @@
 + <a href="https://docs.google.com/document/d/1siJ7sObO55X5u_59MXOgQvlil2CIME-2eC0q5AJpZls/edit">Stream과 함께 하는 Async programming
   </a>
 
+## 브랜치
++ 각 팀원의 이름 별로 브랜치가 존재합니다. 스터디한 결과물을 업로드합니다.
++ "feature-xxx" 브랜치는 xxx의 예제 브랜치입니다. feature-api라면 API 연결 예제 브랜치입니다.
 
