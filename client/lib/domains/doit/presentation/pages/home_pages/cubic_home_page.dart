@@ -6,6 +6,7 @@ import 'package:doit_fluttter_study/domains/doit/domain/services/interfaces/cele
 import 'package:doit_fluttter_study/domains/doit/presentation/cubits/celebrity_cubic/celebrity_cubic.dart';
 import 'package:doit_fluttter_study/domains/doit/presentation/pages/home_pages/home_pages_widgets/list_view_with_title.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CubicHomePage extends StatefulWidget {
@@ -21,9 +22,26 @@ class _CubicHomePageState extends State<CubicHomePage> {
   late ScrollController _verticalScrollController;
   late ScrollController _horizontalScrollController;
 
+  _handleScroll(
+      ScrollController scrollController, CelebrityCubic celebrityCubic) {
+    var scrollPosition = scrollController.position;
+    if (celebrityCubic.state is! CelebrityCubicInProgress) {
+      if (scrollPosition.pixels < -130) {
+        celebrityCubic.refreshCelebrity();
+      } else if (scrollPosition.userScrollDirection ==
+              ScrollDirection.reverse &&
+          scrollPosition.atEdge) {
+        celebrityCubic.readNextCelebrity();
+      }
+    }
+  }
+
   @override
   void initState() {
     super.initState();
+
+    _verticalScrollController = ScrollController();
+    _horizontalScrollController = ScrollController();
   }
 
   @override
@@ -35,65 +53,92 @@ class _CubicHomePageState extends State<CubicHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CelebrityCubic, CelebrityCubicState>(
-        builder: (celebrityContext, celebrityState) {
-      return Scaffold(
+    return Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
           backgroundColor: Colors.white,
-          appBar: AppBar(
-            backgroundColor: Colors.white,
-            elevation: 0,
-            leading: const Icon(Icons.menu, color: Colors.black),
-          ),
-          body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 20),
-                const Text("Find your", style: TextStyle(fontSize: 30)),
-                const Text("Inspiration", style: TextStyle(fontSize: 48)),
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 20),
-                  decoration: BoxDecoration(
-                      color: Colors.grey.shade200,
-                      borderRadius: BorderRadius.circular(16)),
-                  child: const TextField(
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        prefixIcon: Icon(
-                          Icons.search,
-                          color: Colors.black,
-                        ),
-                        hintText: "검색어를 입력해주세요"),
-                  ),
+          elevation: 0,
+          leading: const Icon(Icons.menu, color: Colors.black),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 20),
+              const Text("Find your", style: TextStyle(fontSize: 30)),
+              const Text("Inspiration", style: TextStyle(fontSize: 48)),
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 20),
+                decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(16)),
+                child: const TextField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: Colors.black,
+                      ),
+                      hintText: "검색어를 입력해주세요"),
                 ),
-                OutlinedButton(
-                    onPressed: () {
-                      CelebrityService celebrityService = CelebrityServiceImpl(
-                          celebrityRepository: CelebrityRepositoryImpl(
-                              celebrityClient: CelebrityClientImpl()));
-                      celebrityService
-                          .getCelebrity()
-                          .then((value) => value.forEach(print));
-                    },
-                    child: Text("API TEST")),
-                if (celebrityState is! CelebrityCubicInit)
-                  HomePageListViewWithTheTitle(
-                    title: "가로 스크롤",
-                    scrollController: _horizontalScrollController,
-                    scrollDirection: Axis.horizontal,
-                    dataIterable: [],
-                  ),
-                if (celebrityState is! CelebrityCubicInit)
-                  HomePageListViewWithTheTitle(
-                    title: "세로 스크롤",
-                    scrollController: _verticalScrollController,
-                    scrollDirection: Axis.vertical,
-                    dataIterable: [],
-                  ),
-              ],
-            ),
-          ));
-    });
+              ),
+              OutlinedButton(
+                  onPressed: () {
+                    CelebrityService celebrityService = CelebrityServiceImpl(
+                        celebrityRepository: CelebrityRepositoryImpl(
+                            celebrityClient: CelebrityClientImpl()));
+                    celebrityService
+                        .getCelebrity()
+                        .then((value) => value.forEach(print));
+                  },
+                  child: Text("API TEST")),
+              BlocProvider(
+                  create: (_) {
+                    CelebrityCubic celebrityCubic = CelebrityCubic(
+                        celebrityService: CelebrityServiceImpl(
+                            celebrityRepository: CelebrityRepositoryImpl(
+                                celebrityClient: CelebrityClientImpl())))
+                      ..refreshCelebrity();
+                    _horizontalScrollController.addListener(() => _handleScroll(
+                        _horizontalScrollController, celebrityCubic));
+                    return celebrityCubic;
+                  },
+                  child: Builder(
+                      builder: (builderContext) =>
+                          BlocBuilder<CelebrityCubic, CelebrityCubicState>(
+                              builder: (celebrityContext, celebrityState) {
+                            return HomePageListViewWithTheTitle(
+                              title: "가로 스크롤",
+                              scrollController: _horizontalScrollController,
+                              scrollDirection: Axis.horizontal,
+                              dataIterable: celebrityState.celebrities,
+                            );
+                          }))),
+              BlocProvider(
+                  create: (_) {
+                    CelebrityCubic celebrityCubic = CelebrityCubic(
+                        celebrityService: CelebrityServiceImpl(
+                            celebrityRepository: CelebrityRepositoryImpl(
+                                celebrityClient: CelebrityClientImpl())))
+                      ..refreshCelebrity();
+                    _verticalScrollController.addListener(() => _handleScroll(
+                        _verticalScrollController, celebrityCubic));
+                    return celebrityCubic;
+                  },
+                  child: Builder(
+                      builder: (builderContext) =>
+                          BlocBuilder<CelebrityCubic, CelebrityCubicState>(
+                              builder: (celebrityContext, celebrityState) {
+                            return HomePageListViewWithTheTitle(
+                              title: "세로 스크롤",
+                              scrollController: _verticalScrollController,
+                              scrollDirection: Axis.vertical,
+                              dataIterable: celebrityState.celebrities,
+                            );
+                          }))),
+            ],
+          ),
+        ));
   }
 }

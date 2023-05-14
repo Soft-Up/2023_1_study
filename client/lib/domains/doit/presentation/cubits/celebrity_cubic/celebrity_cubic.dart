@@ -12,6 +12,24 @@ class CelebrityCubic extends Cubit<CelebrityCubicState> {
       : _celebrityService = celebrityService,
         super(CelebrityCubicInit());
 
-  Future<Iterable<Celebrity>> getCelebrity() async =>
-      await _celebrityService.getCelebrity();
+  Future<void> refreshCelebrity() async {
+    emit(CelebrityCubicInProgress(celebrities: state.celebrities));
+    try {
+      final result = await _celebrityService.getCelebrity();
+      emit(CelebrityCubicSuccess(celebrities: result));
+    } catch (e) {
+      emit(CelebrityCubicFailed(celebrities: state.celebrities));
+    }
+  }
+
+  Future<void> readNextCelebrity() async {
+    emit(CelebrityCubicInProgress(celebrities: state.celebrities));
+    try {
+      final result = await _celebrityService.getCelebrity();
+      emit(CelebrityCubicSuccess(
+          celebrities: [...state.celebrities, ...result]));
+    } catch (e) {
+      emit(CelebrityCubicFailed(celebrities: state.celebrities));
+    }
+  }
 }

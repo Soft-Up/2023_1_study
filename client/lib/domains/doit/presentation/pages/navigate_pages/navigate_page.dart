@@ -28,12 +28,7 @@ class NavigatePage extends StatelessWidget {
           OutlinedButton(
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (_) => BlocProvider(
-                        create: (_) => CelebrityCubic(
-                            celebrityService: CelebrityServiceImpl(
-                                celebrityRepository: CelebrityRepositoryImpl(
-                                    celebrityClient: CelebrityClientImpl()))),
-                        child: CubicHomePage(title: "Cubic 페이지"))));
+                    builder: (_) => CubicHomePage(title: "Cubic 페이지")));
               },
               child: Text("Cubic 페이지")),
         ],
