@@ -64,6 +64,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/lib/domains/doit/presentation/pages" />
       <recent name="$PROJECT_DIR$/client/lib/domains/doit" />
       <recent name="$PROJECT_DIR$/client" />
     </key>
