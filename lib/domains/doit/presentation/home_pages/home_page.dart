@@ -1,3 +1,5 @@
+import 'package:doit_fluttter_study/datas/doit/clients/implements/implemenets.dart';
+import 'package:doit_fluttter_study/datas/doit/clients/interfaces/interfaces.dart';
 import 'package:doit_fluttter_study/domains/doit/presentation/home_pages/home_pages_widgets/list_view_with_title.dart';
 import 'package:flutter/material.dart';
 
@@ -18,24 +20,22 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
-          leading: Icon(Icons.menu, color: Colors.black),
+          leading: const Icon(Icons.menu, color: Colors.black),
         ),
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 20),
-              Text("Find your", style: TextStyle(fontSize: 30)),
-              Text("Inspiration", style: TextStyle(fontSize: 48)),
-              SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 20),
+              const Text("Find your", style: TextStyle(fontSize: 30)),
+              const Text("Inspiration", style: TextStyle(fontSize: 48)),
               Container(
+                margin: const EdgeInsets.symmetric(vertical: 20),
                 decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(16)),
-                child: TextField(
+                child: const TextField(
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       prefixIcon: Icon(
@@ -45,6 +45,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       hintText: "검색어를 입력해주세요"),
                 ),
               ),
+              OutlinedButton(onPressed: () {
+                CelebrityClient celebrityClient = CelebrityClientImpl();
+                celebrityClient.getCelebrity();
+              }, child: Text("API TEST")),
               const HomePageListViewWithTheTitle(
                 title: "가로 스크롤",
                 scrollDirection: Axis.horizontal,
