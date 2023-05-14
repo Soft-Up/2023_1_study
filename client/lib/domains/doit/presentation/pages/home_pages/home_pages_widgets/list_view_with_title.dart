@@ -25,31 +25,10 @@ class HomePageListViewWithTheTitle extends StatelessWidget {
         ),
         Expanded(
             child: ListView(
-          shrinkWrap: true,
-          scrollDirection: scrollDirection,
-          children: [
-            Container(
-              color: Colors.red,
-              height: 200,
-              width: 200,
-            ),
-            Container(
-              color: Colors.yellow,
-              height: 200,
-              width: 200,
-            ),
-            Container(
-              color: Colors.blue,
-              height: 200,
-              width: 200,
-            ),
-            Container(
-              color: Colors.green,
-              height: 200,
-              width: 200,
-            ),
-          ],
-        ))
+                shrinkWrap: true,
+                scrollDirection: scrollDirection,
+                children: List.generate(dataList.length,
+                    (index) => Image.network(dataList[index].imgUrl))))
       ],
     ));
   }
