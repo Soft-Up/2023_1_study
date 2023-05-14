@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e25ab803-0c6f-457a-a505-35004ab65701" name="Changes" comment="" />
+    <list default="true" id="e25ab803-0c6f-457a-a505-35004ab65701" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/lib/domains/doit/presentation/pages/home_pages/cubic_home_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/lib/domains/doit/presentation/pages/navigate_pages/navigate_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/app/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/app/app.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/domains/doit/presentation/pages/home_pages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/doit/presentation/pages/home_pages/bloc_home_page.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +55,7 @@
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
     "io.flutter.reload.alreadyRun": "true",
-    "last_opened_file_path": "/Users/jangseongho/IdeaProjects/2023_1_study",
+    "last_opened_file_path": "/Users/jangseongho/IdeaProjects/2023_1_study/client/lib/domains/doit/presentation/pages/home_pages",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -63,6 +70,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/lib/domains/doit/presentation/pages/home_pages" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/client/lib/domains/doit/presentation/pages" />
       <recent name="$PROJECT_DIR$/client/lib/domains/doit" />
@@ -85,7 +95,7 @@
       <updated>1683026362049</updated>
       <workItem from="1683026363745" duration="3360000" />
       <workItem from="1684073178447" duration="2729000" />
-      <workItem from="1684079579422" duration="1897000" />
+      <workItem from="1684079579422" duration="3005000" />
     </task>
     <servers />
   </component>

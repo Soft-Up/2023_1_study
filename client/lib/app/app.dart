@@ -1,4 +1,4 @@
-import 'package:doit_fluttter_study/domains/doit/presentation/pages/home_pages/home_page.dart';
+import 'package:doit_fluttter_study/domains/doit/presentation/pages/navigate_pages/navigate_page.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const NavigatePage(),
     );
   }
 }

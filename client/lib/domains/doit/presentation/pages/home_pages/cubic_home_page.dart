@@ -6,16 +6,16 @@ import 'package:doit_fluttter_study/domains/doit/domain/services/interfaces/cele
 import 'package:doit_fluttter_study/domains/doit/presentation/pages/home_pages/home_pages_widgets/list_view_with_title.dart';
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class CubicHomePage extends StatefulWidget {
+  const CubicHomePage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<CubicHomePage> createState() => _CubicHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _CubicHomePageState extends State<CubicHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
