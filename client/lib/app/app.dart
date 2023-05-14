@@ -1,3 +1,4 @@
+import 'package:doit_fluttter_study/domains/doit/presentation/home_pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {

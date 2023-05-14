@@ -14,7 +14,7 @@ class CelebrityClientImpl implements CelebrityClient {
 
     if (response.statusCode < 300) {
       final decodedResponse =
-          jsonDecode(response.body) as List<Map<String, dynamic>>;
+          jsonDecode(response.body) as List;
       return decodedResponse.map((e) => CelebrityDto.fromJson(e));
     }
     if (response.statusCode < 500) {

@@ -16,7 +16,7 @@ class CelebrityDto {
       name: json['name'],
       type: json['type'],
       gender: json['gender'],
-      imgUrl: json['imgUrl'],
+      imgUrl: json['image'],
     );
   }
 

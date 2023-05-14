@@ -5,36 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e25ab803-0c6f-457a-a505-35004ab65701" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/local.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Flutter/Generated.xcconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lib/app/app.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lib/domains/doit/presentation/home_pages/home_page.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lib/domains/doit/presentation/home_pages/home_pages_widgets/list_view_with_title.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lib/main.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/datas/doit/clients/clients.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/datas/doit/clients/clients.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/datas/doit/clients/implements/celebrity_client_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/datas/doit/clients/implements/celebrity_client_impl.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/datas/doit/clients/implements/implemenets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/datas/doit/clients/implements/implemenets.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/datas/doit/clients/interfaces/celebrity_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/datas/doit/clients/interfaces/celebrity_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/datas/doit/clients/interfaces/interfaces.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/datas/doit/clients/interfaces/interfaces.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domains/core/http/exception/client/client_exception.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/core/http/exception/client/client_exception.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domains/core/http/exception/client/client_exceptions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/core/http/exception/client/client_exceptions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domains/core/http/exception/exceptions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/core/http/exception/exceptions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domains/core/http/exception/server/server_exception.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/core/http/exception/server/server_exception.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domains/core/http/exception/server/server_exceptions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/core/http/exception/server/server_exceptions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domains/doit/domain/model/dtos/celebrity_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/doit/domain/model/dtos/celebrity_dto.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domains/doit/domain/model/dtos/dtos.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/doit/domain/model/dtos/dtos.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/app/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/app/app.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/datas/doit/clients/implements/celebrity_client_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/datas/doit/clients/implements/celebrity_client_impl.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/domains/doit/domain/model/dtos/celebrity_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/doit/domain/model/dtos/celebrity_dto.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/client">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,25 +51,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jangseongho/IdeaProjects/2023_1_study&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "io.flutter.reload.alreadyRun": "true",
+    "last_opened_file_path": "/Users/jangseongho/IdeaProjects/2023_1_study",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "dart.settings",
+    "show.migrate.to.gradle.popup": "false",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/lib/domains/doit" />
       <recent name="$PROJECT_DIR$/client" />
     </key>
   </component>
@@ -88,10 +94,15 @@
       <updated>1683026362049</updated>
       <workItem from="1683026363745" duration="3360000" />
       <workItem from="1684073178447" duration="2729000" />
+      <workItem from="1684079579422" duration="730000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
