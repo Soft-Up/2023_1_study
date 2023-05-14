@@ -18,6 +18,21 @@ class CubicHomePage extends StatefulWidget {
 }
 
 class _CubicHomePageState extends State<CubicHomePage> {
+  late ScrollController _verticalScrollController;
+  late ScrollController _horizontalScrollController;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _verticalScrollController.dispose();
+    _horizontalScrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CelebrityCubic, CelebrityCubicState>(
@@ -63,14 +78,16 @@ class _CubicHomePageState extends State<CubicHomePage> {
                     },
                     child: Text("API TEST")),
                 if (celebrityState is! CelebrityCubicInit)
-                  const HomePageListViewWithTheTitle(
+                  HomePageListViewWithTheTitle(
                     title: "가로 스크롤",
+                    scrollController: _horizontalScrollController,
                     scrollDirection: Axis.horizontal,
                     dataIterable: [],
                   ),
                 if (celebrityState is! CelebrityCubicInit)
-                  const HomePageListViewWithTheTitle(
+                  HomePageListViewWithTheTitle(
                     title: "세로 스크롤",
+                    scrollController: _verticalScrollController,
                     scrollDirection: Axis.vertical,
                     dataIterable: [],
                   ),

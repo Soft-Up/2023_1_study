@@ -1,6 +1,7 @@
 import 'package:doit_fluttter_study/domains/doit/presentation/blocs/celebrity_bloc/celebrity_bloc.dart';
 import 'package:doit_fluttter_study/domains/doit/presentation/pages/home_pages/home_pages_widgets/list_view_with_title.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BlocHomePage extends StatefulWidget {
@@ -13,11 +14,39 @@ class BlocHomePage extends StatefulWidget {
 }
 
 class _BlocHomePageState extends State<BlocHomePage> {
+  late ScrollController _verticalScrollController;
+  late ScrollController _horizontalScrollController;
+
+  _handleScroll(ScrollController scrollController, CelebrityBloc celebrityBloc) {
+    var scrollPosition = scrollController.position;
+    if (celebrityBloc.state is! CelebrityBlocInProgress) {
+      if (scrollPosition.pixels < -130) {
+        celebrityBloc.add(RefreshCelebrity());
+      } else if (scrollPosition.userScrollDirection ==
+              ScrollDirection.reverse &&
+          scrollPosition.atEdge) {
+        celebrityBloc.add(ReadNextCelebrity());
+      }
+    }
+  }
+
   @override
   void initState() {
     super.initState();
 
+    CelebrityBloc celebrityBloc = context.read<CelebrityBloc>();
+    _verticalScrollController = ScrollController()
+      ..addListener(() => _handleScroll(_verticalScrollController, celebrityBloc));
+    _horizontalScrollController = ScrollController()
+      ..addListener(() => _handleScroll(_horizontalScrollController, celebrityBloc));
     context.read<CelebrityBloc>().add(RefreshCelebrity());
+  }
+
+  @override
+  void dispose() {
+    _verticalScrollController.dispose();
+    _horizontalScrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -57,12 +86,14 @@ class _BlocHomePageState extends State<BlocHomePage> {
                 if (celebrityState is! CelebrityBlocInit)
                   HomePageListViewWithTheTitle(
                     title: "가로 스크롤",
+                    scrollController: _horizontalScrollController,
                     scrollDirection: Axis.horizontal,
                     dataIterable: celebrityState.celebrities,
                   ),
                 if (celebrityState is! CelebrityBlocInit)
                   HomePageListViewWithTheTitle(
                     title: "세로 스크롤",
+                    scrollController: _verticalScrollController,
                     scrollDirection: Axis.vertical,
                     dataIterable: celebrityState.celebrities,
                   ),
