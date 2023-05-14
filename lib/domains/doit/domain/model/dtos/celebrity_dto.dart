@@ -11,6 +11,15 @@ class CelebrityDto {
     required this.imgUrl,
   });
 
+  factory CelebrityDto.fromJson(Map<String, dynamic> json) {
+    return CelebrityDto(
+      name: json['name'],
+      type: json['type'],
+      gender: json['gender'],
+      imgUrl: json['imgUrl'],
+    );
+  }
+
   @override
   String toString() {
     return 'CelebrityDto{name: $name, type: $type, gender: $gender, imgUrl: $imgUrl}';
