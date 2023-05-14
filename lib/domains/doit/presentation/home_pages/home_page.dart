@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:doit_fluttter_study/domains/doit/presentation/home_pages/home_pages_widgets/list_view_with_title.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -44,6 +44,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       hintText: "검색어를 입력해주세요"),
                 ),
+              ),
+              const HomePageListViewWithTheTitle(
+                title: "가로 스크롤",
+                scrollDirection: Axis.horizontal,
+              ),
+              const HomePageListViewWithTheTitle(
+                title: "세로 스크롤",
+                scrollDirection: Axis.vertical,
               ),
             ],
           ),
