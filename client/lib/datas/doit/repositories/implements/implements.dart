@@ -1,0 +1,1 @@
+export 'celebirty_repository_impl.dart';
