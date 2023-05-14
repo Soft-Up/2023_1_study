@@ -3,7 +3,7 @@ import 'package:doit_fluttter_study/datas/doit/clients/interfaces/interfaces.dar
 import 'package:doit_fluttter_study/datas/doit/repositories/implements/celebirty_repository_impl.dart';
 import 'package:doit_fluttter_study/domains/doit/domain/services/implements/celebrity_service_impl.dart';
 import 'package:doit_fluttter_study/domains/doit/domain/services/interfaces/celebrity_service.dart';
-import 'package:doit_fluttter_study/domains/doit/presentation/home_pages/home_pages_widgets/list_view_with_title.dart';
+import 'package:doit_fluttter_study/domains/doit/presentation/pages/home_pages/home_pages_widgets/list_view_with_title.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
