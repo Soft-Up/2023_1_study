@@ -82,7 +82,12 @@
 
 ## 브랜치
 + 각 팀원의 이름 별로 브랜치가 존재합니다. 스터디한 결과물을 업로드합니다.
-+ "feature-xxx" 브랜치는 xxx의 예제 브랜치입니다. feature-api라면 API 연결 예제 브랜치입니다.
++ "feature-xxx" 브랜치는 xxx의 예제 브랜치입니다.
+  + feature-client: HTTP 연결 예제
+  + feature-server: 간단한 Express 서버 API 추가 
+  + feature-api: Express 서버와의 API 통신 추가
+  + feature-layered-architecture: API 데이터 가공 레이어 추가
+  + feature-bloc: Bloc을 사용한 Business logic layer 추가
 
 ## 폴더 구조
 ```shell
