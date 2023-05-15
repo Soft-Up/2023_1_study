@@ -52,6 +52,19 @@
   </tbody>
 </table>
 
+## 실행
+### Client
+```shell
+# workspace: 2023_1_study/client
+flutter run
+```
+
+### Server
+```shell
+# workspace: 2023_1_study/server
+npm install
+npm run
+```
 ## 스터디 진행 내용
 
 ### 1주차 ~ 4주차: Dart & Flutter 기초 다지기
