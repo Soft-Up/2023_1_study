@@ -1,3 +1,4 @@
+import 'package:doit_fluttter_study/domains/doit/domain/models/entities/celebrity.dart';
 import 'package:flutter/material.dart';
 
 class HomePageListViewWithTheTitle extends StatelessWidget {
@@ -13,41 +14,25 @@ class HomePageListViewWithTheTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: const TextStyle(fontSize: 32),
-        ),
-        Expanded(
-            child: ListView(
-          shrinkWrap: true,
-          scrollDirection: scrollDirection,
-          children: [
-            Container(
-              color: Colors.red,
-              height: 200,
-              width: 200,
-            ),
-            Container(
-              color: Colors.yellow,
-              height: 200,
-              width: 200,
-            ),
-            Container(
-              color: Colors.blue,
-              height: 200,
-              width: 200,
-            ),
-            Container(
-              color: Colors.green,
-              height: 200,
-              width: 200,
-            ),
-          ],
-        ))
-      ],
-    ));
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text(
+        title,
+        style: const TextStyle(fontSize: 32),
+      ),
+      Expanded(
+          child: ListView(
+              shrinkWrap: true,
+              scrollDirection: scrollDirection,
+              children: List.generate(
+                  datas.length,
+                  (index) => Stack(alignment: Alignment.bottomRight, children: [
+                        Image.network(datas[index].image),
+                        Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+                          Text(datas[index].name),
+                          Text(datas[index].gender),
+                          Text(datas[index].job)
+                        ])
+                      ]))))
+    ]));
   }
 }
