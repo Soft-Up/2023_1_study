@@ -10,30 +10,39 @@ part 'celebrity_event.dart';
 
 part 'celebrity_state.dart';
 
+extension Debounce<T> on Stream<T> {
+  static Timer? _timer;
+
+  Stream<T> debounce(Duration duration) =>
+      transform(StreamTransformer.fromHandlers(handleData: (event, sink) {
+        if (_timer?.isActive ?? false) {
+          _timer?.cancel();
+        }
+
+        _timer = Timer(const Duration(milliseconds: 250), () {
+          sink.add(event);
+        });
+      }));
+}
+
+EventTransformer<Event> debounceSequential<Event>(Duration duration) =>
+    (events, mapper) =>
+        events.debounce(const Duration(milliseconds: 250)).asyncExpand(mapper);
+
 class CelebrityBloc extends Bloc<CelebrityBlocEvent, CelebrityBlocState> {
   final CelebrityService _celebrityService;
-  final List<Timer?> _streamTimer = [null, null];
 
   CelebrityBloc({required CelebrityService celebrityService})
       : _celebrityService = celebrityService,
         super(CelebrityBlocInit()) {
     on<RefreshCelebrity>(_onRefresh,
-        transformer: (events, mapper) => events.transform(
-                StreamTransformer.fromHandlers(handleData: (event, sink) {
-              if (_streamTimer[0]?.isActive ?? false) {
-                _streamTimer[0]?.cancel();
-              }
-
-              _streamTimer[0] = Timer(const Duration(milliseconds: 250), () {
-                mapper.call(event);
-              });
-            })));
+        transformer: (events, mapper) =>
+            events.debounce(const Duration(milliseconds: 250)));
     on<ReadNextCelebrity>(_onReadNext);
   }
 
   Future<void> _onRefresh(
       RefreshCelebrity event, Emitter<CelebrityBlocState> emit) async {
-    log("hello3");
     emit(CelebrityBlocRefreshInProgress(celebrities: state.celebrities));
     try {
       final result = await _celebrityService.getCelebrity();
