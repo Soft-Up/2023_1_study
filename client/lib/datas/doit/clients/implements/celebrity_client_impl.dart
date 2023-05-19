@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:doit_fluttter_study/domains/core/http/clients/clients.dart';
-import 'package:doit_fluttter_study/domains/core/http/exception/exceptions.dart';
 import 'package:doit_fluttter_study/datas/doit/clients/interfaces/celebrity_client.dart';
 import 'package:doit_fluttter_study/domains/doit/domain/model/dtos/celebrity_dto.dart';
 
