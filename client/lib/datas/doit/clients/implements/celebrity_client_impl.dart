@@ -1,25 +1,18 @@
 import 'dart:convert';
 
+import 'package:doit_fluttter_study/domains/core/http/clients/clients.dart';
 import 'package:doit_fluttter_study/domains/core/http/exception/exceptions.dart';
-import 'package:http/http.dart' as http;
-
 import 'package:doit_fluttter_study/datas/doit/clients/interfaces/celebrity_client.dart';
 import 'package:doit_fluttter_study/domains/doit/domain/model/dtos/celebrity_dto.dart';
 
 class CelebrityClientImpl implements CelebrityClient {
+  final DoitRestClient _doitRestClient;
+
+  CelebrityClientImpl({required DoitRestClient doitRestClient})
+      : _doitRestClient = doitRestClient;
+
   @override
   Future<Iterable<CelebrityDto>> getCelebrity() async {
-    final Uri url = Uri.http('localhost:3000', 'datas');
-    final http.Response response = await http.get(url);
-
-    if (response.statusCode < 300) {
-      final decodedResponse = jsonDecode(response.body) as List;
-      await Future.delayed(const Duration(seconds: 1));
-      return decodedResponse.map((e) => CelebrityDto.fromJson(e));
-    }
-    if (response.statusCode < 500) {
-      throw ClientException();
-    }
-    throw ServerException();
+    return await _doitRestClient.getCelebrities();
   }
 }
