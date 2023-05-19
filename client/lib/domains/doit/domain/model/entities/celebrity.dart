@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'celebrity.g.dart';
+
+@JsonSerializable()
 class Celebrity {
   String name;
   String type;
@@ -10,6 +15,9 @@ class Celebrity {
     required this.gender,
     required this.imgUrl,
   });
+
+  factory Celebrity.fromJson(Map<String, dynamic> json) => _$CelebrityFromJson(json);
+  Map<String, dynamic> toJson() => _$CelebrityToJson(this);
 
   @override
   String toString() {
