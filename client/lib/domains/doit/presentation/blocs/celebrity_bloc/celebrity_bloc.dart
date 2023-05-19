@@ -16,10 +16,21 @@ class CelebrityBloc extends Bloc<CelebrityBlocEvent, CelebrityBlocState> {
   CelebrityBloc({required CelebrityService celebrityService})
       : _celebrityService = celebrityService,
         super(CelebrityBlocInit()) {
+    on<SubscribeCelebrity>(_onSubscribe);
     on<RefreshCelebrity>(_onRefresh,
         transformer: debounceSequential<RefreshCelebrity>(
             const Duration(milliseconds: 250)));
     on<ReadNextCelebrity>(_onReadNext);
+  }
+
+  Future<void> _onSubscribe(
+      SubscribeCelebrity event, Emitter<CelebrityBlocState> emit) async {
+    await emit.forEach(_celebrityService.celebrityIterableStream,
+        onData: (Iterable<Celebrity> celebrities) {
+      return CelebrityBlocSuccess(celebrities: celebrities);
+    }, onError: (e, s) {
+      return CelebrityBlocFailed(celebrities: state.celebrities);
+    });
   }
 
   Future<void> _onRefresh(

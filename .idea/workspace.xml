@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e25ab803-0c6f-457a-a505-35004ab65701" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lib/datas/doit/repositories/implements/celebirty_repository_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/datas/doit/repositories/implements/celebirty_repository_impl.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lib/domains/doit/domain/services/implements/celebrity_service_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/doit/domain/services/implements/celebrity_service_impl.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lib/domains/doit/domain/services/interfaces/celebrity_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/doit/domain/services/interfaces/celebrity_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/domains/doit/presentation/blocs/celebrity_bloc/celebrity_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/doit/presentation/blocs/celebrity_bloc/celebrity_bloc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/domains/doit/presentation/blocs/celebrity_bloc/celebrity_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/doit/presentation/blocs/celebrity_bloc/celebrity_event.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
