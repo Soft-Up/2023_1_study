@@ -27,7 +27,8 @@ class CelebrityBloc extends Bloc<CelebrityBlocEvent, CelebrityBlocState> {
       SubscribeCelebrity event, Emitter<CelebrityBlocState> emit) async {
     await emit.forEach(_celebrityService.celebrityIterableStream,
         onData: (Iterable<Celebrity> celebrities) {
-      return CelebrityBlocSuccess(celebrities: celebrities);
+      return CelebrityBlocSuccess(
+          celebrities: [...state.celebrities, ...celebrities]);
     }, onError: (e, s) {
       return CelebrityBlocFailed(celebrities: state.celebrities);
     });
@@ -37,8 +38,7 @@ class CelebrityBloc extends Bloc<CelebrityBlocEvent, CelebrityBlocState> {
       RefreshCelebrity event, Emitter<CelebrityBlocState> emit) async {
     emit(CelebrityBlocRefreshInProgress(celebrities: state.celebrities));
     try {
-      final result = await _celebrityService.getCelebrity();
-      emit(CelebrityBlocSuccess(celebrities: result));
+      await _celebrityService.getCelebrity();
     } catch (e) {
       emit(CelebrityBlocFailed(celebrities: state.celebrities));
     }
@@ -48,9 +48,7 @@ class CelebrityBloc extends Bloc<CelebrityBlocEvent, CelebrityBlocState> {
       ReadNextCelebrity event, Emitter<CelebrityBlocState> emit) async {
     emit(CelebrityBlocReadNextInProgress(celebrities: state.celebrities));
     try {
-      final result = await _celebrityService.getCelebrity();
-      emit(
-          CelebrityBlocSuccess(celebrities: [...state.celebrities, ...result]));
+      await _celebrityService.getCelebrity();
     } catch (e) {
       emit(CelebrityBlocFailed(celebrities: state.celebrities));
     }
