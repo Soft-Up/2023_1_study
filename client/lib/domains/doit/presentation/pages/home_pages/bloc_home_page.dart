@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:doit_fluttter_study/datas/doit/clients/clients.dart';
 import 'package:doit_fluttter_study/datas/doit/repositories/implements/celebirty_repository_impl.dart';
 import 'package:doit_fluttter_study/domains/core/http/clients/clients.dart';
 import 'package:doit_fluttter_study/domains/doit/domain/services/implements/celebrity_service_impl.dart';
@@ -88,10 +87,10 @@ class _BlocHomePageState extends State<BlocHomePage> {
                     CelebrityBloc celebrityBloc = CelebrityBloc(
                         celebrityService: CelebrityServiceImpl(
                             celebrityRepository: CelebrityRepositoryImpl(
-                                celebrityClient: CelebrityClientImpl(
-                                    doitRestClient: DoitRestClient(Dio())))))
+                                doitRestClient: DoitRestClient(Dio()))))
                       ..add(SubscribeCelebrity())
                       ..add(RefreshCelebrity());
+
                     _horizontalScrollController.addListener(() => _handleScroll(
                         _horizontalScrollController, celebrityBloc));
                     return celebrityBloc;
@@ -145,8 +144,7 @@ class _BlocHomePageState extends State<BlocHomePage> {
                     CelebrityBloc celebrityBloc = CelebrityBloc(
                         celebrityService: CelebrityServiceImpl(
                             celebrityRepository: CelebrityRepositoryImpl(
-                                celebrityClient: CelebrityClientImpl(
-                                    doitRestClient: DoitRestClient(Dio())))))
+                                doitRestClient: DoitRestClient(Dio()))))
                       ..add(SubscribeCelebrity())
                       ..add(RefreshCelebrity());
                     _verticalScrollController.addListener(() => _handleScroll(
