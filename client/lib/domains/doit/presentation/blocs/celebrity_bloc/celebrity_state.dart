@@ -25,7 +25,6 @@ class CelebrityBlocReadNextInProgress extends CelebrityBlocInProgress {
   const CelebrityBlocReadNextInProgress({required super.celebrities});
 }
 
-
 class CelebrityBlocSuccess extends CelebrityBlocState {
   const CelebrityBlocSuccess({required super.celebrities});
 }

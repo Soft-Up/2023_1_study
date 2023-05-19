@@ -16,7 +16,9 @@ class Celebrity {
     required this.imgUrl,
   });
 
-  factory Celebrity.fromJson(Map<String, dynamic> json) => _$CelebrityFromJson(json);
+  factory Celebrity.fromJson(Map<String, dynamic> json) =>
+      _$CelebrityFromJson(json);
+
   Map<String, dynamic> toJson() => _$CelebrityToJson(this);
 
   @override

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:doit_fluttter_study/domains/core/bloc/bloc.dart';
 import 'package:doit_fluttter_study/domains/doit/domain/model/entities/entities.dart';
@@ -27,6 +28,9 @@ class CelebrityBloc extends Bloc<CelebrityBlocEvent, CelebrityBlocState> {
       SubscribeCelebrity event, Emitter<CelebrityBlocState> emit) async {
     await emit.forEach(_celebrityService.celebrityIterableStream,
         onData: (Iterable<Celebrity> celebrities) {
+      if(state is CelebrityBlocRefreshInProgress) {
+        return CelebrityBlocSuccess(celebrities: celebrities);
+      }
       return CelebrityBlocSuccess(
           celebrities: [...state.celebrities, ...celebrities]);
     }, onError: (e, s) {

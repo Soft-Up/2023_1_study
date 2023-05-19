@@ -90,6 +90,7 @@ class _BlocHomePageState extends State<BlocHomePage> {
                             celebrityRepository: CelebrityRepositoryImpl(
                                 celebrityClient: CelebrityClientImpl(
                                     doitRestClient: DoitRestClient(Dio())))))
+                      ..add(SubscribeCelebrity())
                       ..add(RefreshCelebrity());
                     _horizontalScrollController.addListener(() => _handleScroll(
                         _horizontalScrollController, celebrityBloc));
@@ -146,6 +147,7 @@ class _BlocHomePageState extends State<BlocHomePage> {
                             celebrityRepository: CelebrityRepositoryImpl(
                                 celebrityClient: CelebrityClientImpl(
                                     doitRestClient: DoitRestClient(Dio())))))
+                      ..add(SubscribeCelebrity())
                       ..add(RefreshCelebrity());
                     _verticalScrollController.addListener(() => _handleScroll(
                         _verticalScrollController, celebrityBloc));
