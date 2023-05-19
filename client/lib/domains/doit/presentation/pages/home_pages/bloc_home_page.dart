@@ -1,5 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:doit_fluttter_study/datas/doit/clients/clients.dart';
 import 'package:doit_fluttter_study/datas/doit/repositories/implements/celebirty_repository_impl.dart';
+import 'package:doit_fluttter_study/domains/core/http/clients/clients.dart';
 import 'package:doit_fluttter_study/domains/doit/domain/services/implements/celebrity_service_impl.dart';
 import 'package:doit_fluttter_study/domains/doit/presentation/blocs/celebrity_bloc/celebrity_bloc.dart';
 import 'package:doit_fluttter_study/domains/doit/presentation/pages/home_pages/home_pages_widgets/list_view_with_title.dart';
@@ -86,7 +88,8 @@ class _BlocHomePageState extends State<BlocHomePage> {
                     CelebrityBloc celebrityBloc = CelebrityBloc(
                         celebrityService: CelebrityServiceImpl(
                             celebrityRepository: CelebrityRepositoryImpl(
-                                celebrityClient: CelebrityClientImpl())))
+                                celebrityClient: CelebrityClientImpl(
+                                    doitRestClient: DoitRestClient(Dio())))))
                       ..add(RefreshCelebrity());
                     _horizontalScrollController.addListener(() => _handleScroll(
                         _horizontalScrollController, celebrityBloc));
@@ -141,7 +144,8 @@ class _BlocHomePageState extends State<BlocHomePage> {
                     CelebrityBloc celebrityBloc = CelebrityBloc(
                         celebrityService: CelebrityServiceImpl(
                             celebrityRepository: CelebrityRepositoryImpl(
-                                celebrityClient: CelebrityClientImpl())))
+                                celebrityClient: CelebrityClientImpl(
+                                    doitRestClient: DoitRestClient(Dio())))))
                       ..add(RefreshCelebrity());
                     _verticalScrollController.addListener(() => _handleScroll(
                         _verticalScrollController, celebrityBloc));

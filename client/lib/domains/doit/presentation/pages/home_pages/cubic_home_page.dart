@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:doit_fluttter_study/datas/doit/clients/implements/implemenets.dart';
 import 'package:doit_fluttter_study/datas/doit/clients/interfaces/interfaces.dart';
 import 'package:doit_fluttter_study/datas/doit/repositories/implements/celebirty_repository_impl.dart';
+import 'package:doit_fluttter_study/domains/core/http/clients/clients.dart';
 import 'package:doit_fluttter_study/domains/doit/domain/services/implements/celebrity_service_impl.dart';
 import 'package:doit_fluttter_study/domains/doit/domain/services/interfaces/celebrity_service.dart';
 import 'package:doit_fluttter_study/domains/doit/presentation/cubits/celebrity_cubic/celebrity_cubic.dart';
@@ -87,7 +89,8 @@ class _CubicHomePageState extends State<CubicHomePage> {
                   onPressed: () {
                     CelebrityService celebrityService = CelebrityServiceImpl(
                         celebrityRepository: CelebrityRepositoryImpl(
-                            celebrityClient: CelebrityClientImpl()));
+                            celebrityClient: CelebrityClientImpl(
+                                doitRestClient: DoitRestClient(Dio()))));
                     celebrityService
                         .getCelebrity()
                         .then((value) => value.forEach(print));
@@ -98,7 +101,8 @@ class _CubicHomePageState extends State<CubicHomePage> {
                     CelebrityCubic celebrityCubic = CelebrityCubic(
                         celebrityService: CelebrityServiceImpl(
                             celebrityRepository: CelebrityRepositoryImpl(
-                                celebrityClient: CelebrityClientImpl())))
+                                celebrityClient: CelebrityClientImpl(
+                                    doitRestClient: DoitRestClient(Dio())))))
                       ..refreshCelebrity();
                     _horizontalScrollController.addListener(() => _handleScroll(
                         _horizontalScrollController, celebrityCubic));
@@ -120,7 +124,8 @@ class _CubicHomePageState extends State<CubicHomePage> {
                     CelebrityCubic celebrityCubic = CelebrityCubic(
                         celebrityService: CelebrityServiceImpl(
                             celebrityRepository: CelebrityRepositoryImpl(
-                                celebrityClient: CelebrityClientImpl())))
+                                celebrityClient: CelebrityClientImpl(
+                                    doitRestClient: DoitRestClient(Dio())))))
                       ..refreshCelebrity();
                     _verticalScrollController.addListener(() => _handleScroll(
                         _verticalScrollController, celebrityCubic));
