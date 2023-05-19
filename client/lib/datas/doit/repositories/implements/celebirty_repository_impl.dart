@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:doit_fluttter_study/datas/doit/clients/clients.dart';
 import 'package:doit_fluttter_study/datas/doit/repositories/interfaces/celebrity_repository.dart';
