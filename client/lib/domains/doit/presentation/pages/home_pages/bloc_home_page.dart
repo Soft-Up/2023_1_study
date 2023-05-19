@@ -21,15 +21,17 @@ class _BlocHomePageState extends State<BlocHomePage> {
   late ScrollController _verticalScrollController;
   late ScrollController _horizontalScrollController;
 
+  /// 리스트의 스크롤에 따라 데이터를 새로고침하거나 추가로 불러옵니다.
+  ///
+  /// 1. 리스트의 처음에서 반대 방향으로 스크롤하면 데이터가 새로고침 됩니다.
+  /// 2. 리스트의 마지막에서 스크롤하면 데이터를 추가로 불러옵니다.
   _handleScroll(
       ScrollController scrollController, CelebrityBloc celebrityBloc) {
     var scrollPosition = scrollController.position;
     if (celebrityBloc.state is! CelebrityBlocInProgress) {
       if (scrollPosition.pixels < -100) {
         celebrityBloc.add(RefreshCelebrity());
-      } else if (scrollPosition.userScrollDirection ==
-              ScrollDirection.reverse &&
-          scrollPosition.atEdge) {
+      } else if (scrollPosition.atEdge) {
         celebrityBloc.add(ReadNextCelebrity());
       }
     }

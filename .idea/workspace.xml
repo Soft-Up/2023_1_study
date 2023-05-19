@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e25ab803-0c6f-457a-a505-35004ab65701" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/client/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/client/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/datas/doit/repositories/implements/celebirty_repository_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/datas/doit/repositories/implements/celebirty_repository_impl.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/datas/doit/repositories/interfaces/celebrity_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/datas/doit/repositories/interfaces/celebrity_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/domains/core/bloc/functions/event_transformer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/core/bloc/functions/event_transformer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/domains/core/http/clients/do_it/do_it.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/core/http/clients/do_it/do_it.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/domains/core/stream/extensions/debounce.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/core/stream/extensions/debounce.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/domains/doit/domain/model/dtos/celebrity_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/doit/domain/model/dtos/celebrity_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/domains/doit/domain/model/entities/celebrity.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/doit/domain/model/entities/celebrity.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/domains/doit/domain/model/mappers/celebrity_mapper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/doit/domain/model/mappers/celebrity_mapper.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/domains/doit/domain/services/interfaces/celebrity_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/doit/domain/services/interfaces/celebrity_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/domains/doit/presentation/blocs/celebrity_bloc/celebrity_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/doit/presentation/blocs/celebrity_bloc/celebrity_bloc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/domains/doit/presentation/blocs/celebrity_bloc/celebrity_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/doit/presentation/blocs/celebrity_bloc/celebrity_event.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/domains/doit/presentation/cubits/celebrity_cubic/celebrity_cubic.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/doit/presentation/cubits/celebrity_cubic/celebrity_cubic.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/domains/doit/presentation/pages/home_pages/bloc_home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/doit/presentation/pages/home_pages/bloc_home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/domains/doit/presentation/pages/home_pages/cubic_home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/domains/doit/presentation/pages/home_pages/cubic_home_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
