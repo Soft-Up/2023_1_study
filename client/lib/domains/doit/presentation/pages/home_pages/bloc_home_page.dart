@@ -104,7 +104,7 @@ class _BlocHomePageState extends State<BlocHomePage> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                  Text("가로 스크롤",
+                                  const Text("가로 스크롤",
                                       style: TextStyle(fontSize: 32)),
                                   Expanded(
                                       child: Row(
