@@ -101,8 +101,11 @@ npm run
   + feature-api: Express 서버와의 API 통신 추가
   + feature-layered-architecture: API 데이터 가공 레이어 추가
   + feature-bloc: Bloc을 사용한 Business logic layer 추가
+  + feature-retrofit: Retrofit 라이브러리를 사용해 Rest API 설정하는 방법 추가
+  + feature-stream: (최종) Stream을 활용해 로직을 구성하는 법 추가
 
 ## 폴더 구조
+스터디를 진행할 때마다 해당 주차에 맞게 업데이트할 예정
 ```shell
 client # 클라이언트 
   ├── lib
