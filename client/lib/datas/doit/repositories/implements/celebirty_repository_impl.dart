@@ -7,8 +7,8 @@ import 'package:doit_fluttter_study/domains/doit/domain/model/mappers/celebrity_
 
 class CelebrityRepositoryImpl implements CelebrityRepository {
   final CelebrityClient _celebrityClient;
-  final StreamController<Iterable<Celebrity>> _celebrityIterableStreamController =
-      StreamController();
+  final StreamController<Iterable<Celebrity>>
+      _celebrityIterableStreamController = StreamController();
 
   CelebrityRepositoryImpl({required CelebrityClient celebrityClient})
       : _celebrityClient = celebrityClient;
