@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:doit_fluttter_study/domains/doit/presentation/home_pages/home_pages_widgets/list_view_with_title.dart';
 import 'package:flutter/material.dart';
-
-import 'home_pages_widgets/list_view_with_the_title.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required String title});
