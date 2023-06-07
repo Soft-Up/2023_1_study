@@ -10,6 +10,16 @@ class Celebrity {
     required this.job,
     required this.image,
   });
+
+  factory Celebrity.fromJson(Map<String, dynamic> json) {
+    return Celebrity(
+        name: json["name"], gender: json["gender"], job: json["type"], image: json["image"]);
+  }
+
+  @override
+  String toString() {
+    return 'Celebrity{name: $name, gender: $gender, job: $job, image: $image}';
+  }
 }
 
 final List<Celebrity> datas = [
@@ -22,14 +32,12 @@ final List<Celebrity> datas = [
       name: "수지",
       job: "배우",
       gender: "여자",
-      image:
-          "https://www.bulkwang.co.kr/news/photo/202111/36950_16361_3228.jpg"),
+      image: "https://www.bulkwang.co.kr/news/photo/202111/36950_16361_3228.jpg"),
   Celebrity(
       name: "안유진",
       job: "아이돌",
       gender: "여자",
-      image:
-          "https://blog.kakaocdn.net/dn/cgeau6/btrzmkypFWq/DmDjPKiUHllycaX8lSiP6k/img.jpg"),
+      image: "https://blog.kakaocdn.net/dn/cgeau6/btrzmkypFWq/DmDjPKiUHllycaX8lSiP6k/img.jpg"),
   Celebrity(
       name: "장원영",
       job: "아이돌",
